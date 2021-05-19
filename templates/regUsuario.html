@@ -1,0 +1,155 @@
+{% extends 'main.html' %}
+{% block titulo %} Registro de Usuarios {% endblock titulo %}
+{% load static %}
+
+{% block content %}
+
+    <script src="{% static 'js/regUsuario.js' %}"></script>
+
+
+
+    <div class="container">
+        <a href="/" class="btn btn-danger mt-5">
+            Regresar
+        </a>
+
+
+        <!--formulario-->
+        <form method="POST">
+            {% csrf_token %}
+            <div class="card mt-2 mb-4">
+                <h1 class="text-center m-4 font-weight-light">
+                    <img 
+                      src="{% static 'img/add-user-2.png' %}" 
+                      alt=""
+                      width="50"
+                      class="img-fluid">
+                    Registro de Usuario
+                </h1>
+
+
+                <div class="card-body">
+                    <!--nombre-->
+                    <div class="form-group">
+                        <input 
+                        type="text"
+                        class="form-control"
+                        placeholder="Nombres"
+                        id="name"
+                        name="name">
+                    </div>
+
+
+                    <!--apellido-->
+                    <div class="form-group">
+                        <input 
+                        type="text"
+                        class="form-control"
+                        placeholder="Apellidos"
+                        id="last_name"
+                        name="last_name">
+                    </div>
+
+
+                    <!--celular-->
+                    <div class="form-group">
+                        <input 
+                        type="text"
+                        class="form-control"
+                        placeholder="Celular"
+                        id="phone"
+                        name="phone">
+                    </div>
+
+
+                    <!--email-->
+                    <div class="form-group">
+                        <input 
+                        type="email"
+                        class="form-control"
+                        placeholder="Correo Electronico"
+                        id="email"
+                        name="email">
+                    </div>
+
+
+                    <!--direccion-->
+                    <div class="form-group">
+                        <input 
+                        type="text"
+                        class="form-control"
+                        placeholder="Dirección"
+                        id="address"
+                        name="address">
+                    </div>
+
+
+                    <!--direccion 2-->
+                    <div class="form-group">
+                        <input 
+                        type="text"
+                        class="form-control"
+                        placeholder="Direccion 2"
+                        id="address1"
+                        name="address1">
+                    </div>
+
+
+                    <!--direccion 3-->
+                    <div class="form-group">
+                        <input 
+                        type="text"
+                        class="form-control"
+                        placeholder="Direccion 2"
+                        id="address2"
+                        name="address2">
+                    </div>
+
+
+                    <!--ciudad-->
+                    <div class="form-group">
+                        <input 
+                        type="text"
+                        class="form-control"
+                        placeholder="Ciudad"
+                        id="city"
+                        name="city">
+                    </div>
+
+
+                    <!--provincia-->
+                    <div class="form-group">
+                        <input 
+                        type="text"
+                        class="form-control"
+                        placeholder="Provincia"
+                        id="province"
+                        name="province">
+                    </div>
+
+
+                    <!--codigo postal-->
+                    <div class="form-group">
+                        <input 
+                        type="text"
+                        class="form-control"
+                        placeholder="Codigo Postal"
+                        id="Zip"
+                        name="Zip">
+                    </div>
+
+
+
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-success btn-block">Registrar Usuario</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    
+
+{% endblock content %}

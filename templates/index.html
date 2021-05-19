@@ -1,0 +1,110 @@
+{% extends 'main.html' %}
+{% block titulo %} Pedidos {% endblock titulo %}
+{% load static %}
+
+{% block content%}
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+     <!--menu-->
+     <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm rounded">
+            <a class="navbar-brand" href="#">
+                
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item active">
+                  <a class=" btn btn-outline-dark m-2" href="registro-usuarios/">
+                      <img 
+                      src="{% static 'img/add-user-2.png' %}" 
+                      alt=""
+                      width="30"
+                      class="img-fluid">
+                      Registrar Ususario
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class=" btn btn-outline-info m-2" href="generar-pedido/">
+                      <img 
+                      src="{% static 'img/add.png' %}" 
+                      alt=""
+                      width="30"
+                      class="img-fluid">
+                      Registrar Pedido</a>
+                </li>
+            
+              </ul>
+            </div>
+          </nav>
+    </header>
+
+
+
+
+    <section>
+        <article id="lista-pedidos">
+            <div class="container mt-5">
+                <h1 class=" mt-5 font-weight-light">
+                    <img 
+                    src="{% static 'img/list.png' %}" 
+                    alt="register img" 
+                    width="50"
+                    class="img-fluid">
+                    Pedidos
+                </h1>
+
+                <!--buscador-->
+                <form method="GET">
+                    <input 
+                    type="text"
+                    class="form-control mt-5"
+                    placeholder="Buscar Pedido ..."
+                    name="buscar">
+                </form>
+
+                {% for items in item %}
+               <div class="card mt-5 mb-5 shadow bg-white rounded">
+                   <div class="card-body">
+                        <div class="row">
+                            <!--datos del Producto-->
+                            <div class="col font-weight-light">
+                                <h2 class="mb-3 font-weight-light">Datos del Producto</h2>
+
+                                <p>Codigo del Producto: <b>{{items.code}}</b></p>
+                                <p>Fecha del Pedido: <b>{{items.date}}</b></p>
+                                <p>Cantidad: <b>{{items.quantity}}</b></p>
+                                
+                            </div>
+
+
+                            <!--datos del cliente-->
+                            <div class="col font-weight-light">
+                                <h2 class="mb-3 mt-3 font-weight-light">Datos del Cliente</h2>
+
+                                <p>Nombre: <b>{{items.name.name}}</b></p>
+                                <p>Apellido: <b>{{items.name.last_name}}</b></p>
+                                <p>Celular: <b>{{items.name.phone}}</b></p>
+                                <p>Email: <b>{{items.name.email}}</b></p>
+                                <p>Direccion: <b>{{items.name.address}}</b></p>
+                                <p>Direccion 2: <b>{{items.name.address1}}</b></p>
+                                <p>Direccion 3: <b>{{items.name.address}}</b></p>
+                                <p>Ciudad: <b>{{items.name.city}}</b></p>
+                                <p>Provincia: <b>{{items.name.province}}</b></p>
+                                <p>Codigo Postal: <b>{{items.name.Zip}}</b></p>
+
+                            </div>
+                        </div>
+                   </div>
+               </div>
+               {% endfor %}
+            </div>
+        </article>
+    </section>
+{% endblock content %}

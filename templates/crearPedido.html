@@ -1,0 +1,132 @@
+{% extends 'main.html' %}
+{% block titulo %} Generar Pedido {% endblock titulo %}
+{% load static %}
+{% block content %}
+
+    <script src="{% static 'js/jquery-ui-1.12.1/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/generar_pedidos.js' %}"></script>
+
+
+
+    <div class="container mt-5">
+        
+        <a href="/" class="btn btn-danger mt-3">
+            Regresar
+        </a>
+
+
+        <div class="row">
+            <!--formulario del pedido-->
+            <div class="col">
+                <div class="card mt-2" id="card-form">
+                    <h1 class="font-weight-light text-center mt-2">
+                        <img 
+                        src="{% static 'img/add.png' %}" 
+                        class="img-fluid" 
+                        width="50">
+                        Generar Pedido
+                    </h1>
+                    <div class="card-body">
+                        <!--formulario-->
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            
+                            <!--codigo del producto-->
+                            <div class="form-group">
+                                <input 
+                                type="text"
+                                class="form-control"
+                                placeholder="Codigo del Producto"
+                                id="code"
+                                name="code">
+                            </div>
+        
+        
+                            <!--fecha-->
+                            <div class="form-group">
+                                <input 
+                                type="date"
+                                class="form-control"
+                                id="date"
+                                name="date">
+                            </div>
+        
+        
+                            <!--cantidad-->
+                            <div class="form-group">
+                                <input 
+                                type="number" 
+                                class="form-control"
+                                id="quantity"
+                                name="quantity">
+                                <small class="text-form text-muted">Cantidad de productos</small>
+                            </div>
+        
+        
+        
+                            <!--usuario o cliente-->
+        
+                            <div class="form-group">
+                                    
+                                    <input 
+                                    type="number"
+                                    class="form-control"
+                                    id="name"
+                                    name="name">
+                                    <small class="text-form text-muted">
+                                        Id del cliente
+                                    </small>
+                                    
+                            </div>
+        
+        
+                            
+                            <!--boton-->
+                            <hr>
+                            <button type="submit" class="btn btn-success btn-block">Generar Pedido</button>
+            
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!--lista de clientes-->
+            <div class="col font-weight-light">
+
+                <form method="GET">
+                    <input type="text" class="form-control mt-2" placeholder="Buscar Cliente" name="buscar">
+                    <!--  <button type="submit" class="btn btn-info">Buscar</button> -->
+                </form>
+
+
+                {% for hoyrx in hoyrx %}
+                <div class="card mt-2 mb-3">
+                    <h1 class="font-weight-light">
+                        Lista de Clientes
+                    </h1>
+
+                    <div class="card-body">
+
+                        <p>Id: <b>{{hoyrx.id}}</b></p>
+                        <p>Nombre: <b>{{hoyrx.name}}</b></p>
+                        <p>Apellido: <b>{{hoyrx.last_name}}</b></p>
+                        <p>Celular: <b>{{hoyrx.phone}}</b></p>
+                        <p>Email: <b>{{hoyrx.email}}</b></p>
+                        <p>Direccion: <b>{{hoyrx.address}}</b></p>
+                        <p>Direccion 2: <b>{{hoyrx.address1}}</b></p>
+                        <p>Direccion 3: <b>{{hoyrx.address2}}</b></p>
+                        <p>Ciudad: <b>{{hoyrx.city}}</b></p>
+                        <p>Provincia: <b>{{hoyrx.province}}</b></p>
+                        <p>Codigo Postal: <b>{{hoyrx.Zip}}</b></p>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}

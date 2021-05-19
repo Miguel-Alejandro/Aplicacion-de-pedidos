@@ -1,2 +1,2 @@
-# Aplicacion-de-pedidos
-Pequeña aplicación hecha con html, css, js, jquery, django y sqlite
+# Aplicación de pedidos
+Pequeña aplicación que simula un gestor de pedidos basicos
